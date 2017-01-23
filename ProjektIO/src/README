@@ -1,0 +1,32 @@
+
+Core:
+
+Główna paczka projektu. Zawiera podstawowe struktury jak (Group,Room,Subject,Teacher).
+Główną klasą jest Engine - implementuje on interfejs IEngine, który udostępnia wybrane metody do GUI (SaveData, LoadData).
+Zawiera on obiekt klasy DataFile, który jest naszą bazą danych - zawiera listy wszystkich potrzebnych elementów wykorzystywanych w programie. Obiekt jest prywatny i operacje na nim wykonane powinny znajdować się tylko w Engine.
+
+JSONController jest konwertorem pliku - służy do jego zapisu, oraz wczytywania.
+
+
+
+DataSource:
+
+Paczka dostępu do danych. Zawiera tylko jedną klasę dostępu do pliku lokalnego.
+
+
+GUI:
+
+Zawiera wszystkie Formy potrzebne aplikacji.
+Głównym jest MainForm z niego przechodzimy do wybranych opcji
+
+
+Model:
+
+Paczka ta zawiera interfejsy oraz enumy. Interfejsy wystawiają wybrane metody i pozwalają na komunikacje pomiędzy podstawowymi strukturami projektu (GUI-Core,Core-DataSource).
+Padzielona jest na paczki odpowiadające strukturze projektu z których dany interfejs pochodzi.
+IDataController - interfejs pozwalający zapisać i wczytać strukturę w odpowiednim formacie (na razie implementujemy tylko JSONa)
+IEngine - interfejs wystawiający metody do GUI
+IForm - interfejs formularza do wprowadzania danych - zapewnia również na komunikazjie z IGUI, aby móc wysłać swoje dane do głównego GUI
+UGUI - interfejs pozwalający komunikować się formularza z głównym GUI, aby przesłać dane
+
+
